@@ -205,6 +205,19 @@ git checkout -b newbranchname -t origin/main
 
 This tells git to create a new branch named *newbranchname* from the branch available remotely at *origin/main*.
 
+### Git Add
+
+No changes made to a branch is part of the local branch before the changes has been added to the "tracker". You will see that files are modified (`M`) from what the branch knows, or that a file is not yet part of the branch tracker yet (`U`), but these changes are not yet part of the source control. In order to add any changes made, you need to put any new files and/or any changes to existing files into a staging area. This is performed by providing the `git add` command.
+
+You can see the status of individual files in a terminal by issuing the command:
+
+```sh
+git status
+```
+
+#### Adding changes in GitHub
+
+
 <!-- Resource links -->
 [git-win]: https://git-scm.com/download/win
 [xcode]: https://developer.apple.com/xcode/resources/
