@@ -1,2 +1,4 @@
 ---
 store: "Best Pizza Ever"
+this:
+    test: enabled
