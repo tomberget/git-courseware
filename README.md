@@ -336,11 +336,41 @@ The `-r` option makes it recursive, deleting everything in the folder you have s
 
 All changes in staging will be part of the same commit. If you want to avoid certain changes inside a commit, you should not add those changes to the staging area yet. Either stash the remaining changes, or leave them alone for now.
 
+> Tip: You should provide a commit message that is relevant to what will change by this commit.
+> When writing the message, write in present tense, not in past tense.
+> The commit message is a window into what happens now, not what has happened.
+
+Please note that you can continue making new changes after you have made a commit. The changes you make after commit has completed, will be diffed against the commit SHA, and no longer the branch off SHA.
+
+Keep making changes and commits until you are satisifed. You may publish the commited changes to the remote GitHub repository at any time.
+
 #### Commit in GitHub
 
 Commit is made at the same time any file is changed and saved, as you need to "Commit changes..." to save them. Remember to add a proper commit message.
 
 #### Commit in VSCode
+
+All changes listed in "Staged Changes" will be part of the commit. Add a proper commit message, and press the *v Commit* button. The button should now change to show you the *Publish Branch" button - if no more changes remain.
+
+Pressing the *Publish Branch* button, pushes the branch to the remote GitHub repository. The branch name in GitHub will be the same as your current branch name.
+
+#### Commit using the terminal
+
+When you have added all the changes you want for the commit, you can either issue `git commit`, which initiates an interactive commit dialogue. You can also omit that dialogue by adding the `-m ` option followed by your commit message in quotes. It may look something like this:
+
+```sh
+git commit -m "Add mozarella pizza topping to the list"
+```
+
+### Push commited changes to the GitHub repository
+
+When you make a commit, the commit is local to your repository - until you decide to publish the commited changes to the remote repository. You can publish commited changes as often as you want to, or never.
+
+#### Push commited changes using GitHub
+
+All commited changes on GitHub, is already in GitHub. You do not need to publish these.
+
+#### Push commited changes using VSCode
 
 
 
