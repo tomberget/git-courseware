@@ -332,6 +332,18 @@ git rm foldername -rf
 
 The `-r` option makes it recursive, deleting everything in the folder you have stated. The `-f` option forces it to remove files, even recursively.
 
+### Commit changes
+
+All changes in staging will be part of the same commit. If you want to avoid certain changes inside a commit, you should not add those changes to the staging area yet. Either stash the remaining changes, or leave them alone for now.
+
+#### Commit in GitHub
+
+Commit is made at the same time any file is changed and saved, as you need to "Commit changes..." to save them. Remember to add a proper commit message.
+
+#### Commit in VSCode
+
+
+
 <!-- Resource links -->
 [git-win]: https://git-scm.com/download/win
 [xcode]: https://developer.apple.com/xcode/resources/
