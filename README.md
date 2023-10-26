@@ -314,7 +314,23 @@ Select the file you want to delete, and press the *...*-button on the top row. S
 
 First, delete the file from the *Explorer* activity. Then go to the *SOURCE CONTROL* activity and select the +-symbol next to the file (should be represented with strikethrough and `D`), and press the +-symbol to stage the file deletion.
 
-#### Remove files and folders using
+#### Remove files and folders using the terminal
+
+In the terminal, you can issue the `git rm` command. This removes and stages the removal immediately.
+
+For individual files:
+
+```sh
+git rm file1.ext file2.ext Example/file3.ext
+```
+
+If you need to remove an entire folder, you can do this by:
+
+```sh
+git rm foldername -rf
+```
+
+The `-r` option makes it recursive, deleting everything in the folder you have stated. The `-f` option forces it to remove files, even recursively.
 
 <!-- Resource links -->
 [git-win]: https://git-scm.com/download/win
