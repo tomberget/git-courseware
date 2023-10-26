@@ -215,8 +215,106 @@ You can see the status of individual files in a terminal by issuing the command:
 git status
 ```
 
-#### Adding changes in GitHub
+#### Add changes in GitHub
 
+Changes made directly in GitHub are added and commited at the moment you press "Commit changes...".
+
+#### Add changes in VSCode
+
+In VSCode, use the +-symbol next to files under *Changes* in *SOURCE CONTROL*. This will move them into the staging area.
+
+#### Add changes using terminal
+
+In a terminal, never use the `git add .` command. It will add all changes, in all files, also files that have not been previously tracked. This is the most common way of introducing items in your repository that your REALLY do not want to be there. Examples include passwords, secrets, or files containing things you are just trying out.
+
+##### Add new files using terminal
+
+New files can be added in a chain, separated by a space in your add command. You can do one file, or many files at the same time. The command is:
+
+```sh
+git add file1.ext file2.ext Examples/file3.ext
+```
+
+##### Add changes to tracked files using terminal
+
+You can add changes to already tracked files using the command above, but you also have a nice way of reviewing the changes you have made by issuing the following command:
+
+```sh
+git add -p
+```
+
+Now you can go through the changes, review them in and press `y` to include them, `n` to not include, `a` to include all changes in that file or `q` to stop. Plus a ton more options.
+
+### Git Stash
+
+It may very well be that you have made changes that you do not want to be part of a commit, or you need to change branches and have to either commit or stash your current changes in order to do so.
+
+The `git stash` command stashes all your changes temporarily, until you either `clear` the stash, or `pop` the stash.
+
+- `git stash clear` will remove what has been stashed, and it will not be recoverable.
+- `git stash pop` will reapply the changes you previously stashed to the current active branch, and then clear the same changes from the stash.
+
+#### Stash changes in GitHub
+
+As far as I know, this is not possible. You have already commited your changes.
+
+#### Stash changes in VSCode
+
+First add all files that should be commited. Commit those changes. Then right click the "Changes" area, and select select "Stash All Changes". Change the stash message, or press *Enter* to use the one suggested.
+
+> You can also stash individual files, it is just more cumbersome.
+
+To pop the stash, you will find the current stash under *STASHES*. Select the *Apply Stash* button, and choose to *Pop* the stash.
+
+#### Stash changes using the terminal
+
+The easiest way is to add and commit the changes you need first. Then you can simply issue the command:
+
+```sh
+git stash
+```
+
+To stash all changes to tracked files, or:
+
+```sh
+git stash --include-untracked
+```
+
+to also include files that have not yet been added to the source control tracker.
+
+You can, as well stash files indivdually by using
+
+```sh
+git stash file1.ext file2.ext Example/file3.ext
+```
+
+To recover the changes using terminal on your current active branch, you can issue the command:
+
+```sh
+git stash pop
+```
+
+This will reapply all the changes you previously stashed.
+
+> Issuing the command below, will instead clear the stash. You will not be able to recover these changes again.
+>
+> ```sh
+> git stash clear
+> ```
+
+### Remove files from branch
+
+Files that are part of the source control tracker can also be removed. You can just delete the file outright, but then you need to add and commit that to the staging area by using Add afterwards. If you are prepared to use the terminal, there is a much more efficient way of removing individual files - or entire folders with content.
+
+#### Remove files using GitHub
+
+Select the file you want to delete, and press the *...*-button on the top row. Select *Delete file*.
+
+#### Remove files using VSCode
+
+First, delete the file from the *Explorer* activity. Then go to the *SOURCE CONTROL* activity and select the +-symbol next to the file (should be represented with strikethrough and `D`), and press the +-symbol to stage the file deletion.
+
+#### Remove files and folders using
 
 <!-- Resource links -->
 [git-win]: https://git-scm.com/download/win
