@@ -57,6 +57,38 @@ Please note that these files can be expanded and changed, fitting to your needs.
 
 By following the steps above, you should be off to a good start towards dominating the world of YAML files, and beyond....
 
+### Installing Pre-Commit hooks
+
+If you are able to work locally, and have Python installed, enabling pre-commit hooks are a superb way to ensure that the quality of your code is as good as it can be. Introducing pre-commit hooks into a repository means that much of the code issue will be fixed before it is ever commited. This is part of a shift-left strategy, where you try to fix issues as soon as possible before any lenghty process (like a pull request can be) occurs. You can read more about pre-commit [here][pre-commit].
+
+Pre-Commit hooks can be installed on GitHub codespaces, or in computers where Python is installed. You can do this in the following manner:
+
+Open a terminal in VSCode, and enter the following command:
+
+```sh
+pip install pre-commit
+```
+
+This install is only required once per computer/codespace.
+
+To set up the pre-commit hooks in your current repository, issue the command:
+
+```sh
+pre-commit install
+```
+
+This installs the pre-commit hooks into the current repository. It it now required that you add a file named `.pre-commit-config.yaml` to the root of your repository, and add that file to the source control. The `.per-commit-config.yaml` file is where you specify what should be executed as part of a pre-commit check. In this repository, you will find a `.pre-commit-config.yaml` file suited for validating repositories of YAML files.
+
+Once that is done, you can issue the command:
+
+```sh
+pre-commit run -a
+```
+
+This will run the pre-commit hooks without having to commit anything. It will run through the hooks described in the `.pre-commit-config.yaml` file. Any errors that appear should be sorted out before continuing.
+
+Once all issues are sorted out, the pre-commit checks will run on each and every commit - validating that everything is according to the specifications in the cheks. If not, the commit will fail, and you need to sort out the issues before trying to commit again.
+
 ## Working with Git/GitHub
 
 ### Creating a new repository
@@ -204,6 +236,46 @@ git checkout -b newbranchname -t origin/main
 ```
 
 This tells git to create a new branch named *newbranchname* from the branch available remotely at *origin/main*.
+
+#### Deleting a branch in GitHub
+
+Branches can be deleted in the branches section. This will only delete the branch in GitHub, not any local branches downstream branches.
+
+#### Deleting a branch in VSCode
+
+Go to the *BRANCES* section, use the "Refresh" symbol, and then switch to the *main* branch. Using the "Switch to Another Branch..." button, or the "Switch to Branch..." button directly on the branch.
+
+Right click on the you want to delete, and then select the "Delete Branch...".
+
+> Note that you *cannot* delete a branch that is currently active.
+
+#### Deleting a branch using the terminal
+
+First, checkout the main branch issuing the following command:
+
+```sh
+git checkout main
+```
+
+Then, fetch and pull all changes made remotely:
+
+```sh
+git fetch && git pull
+```
+
+Finally, delete the branch you want to delete by issuing the command:
+
+```sh
+git branch -d newbranchname
+```
+
+> Note that if you now receive a warning that the local branch cannot be deleted, you need to use this command instead
+>
+> ```sh
+> git branch -D newbranchname
+> ```
+>
+> This will detach the local branch from upstream, and delete the local branch.
 
 ### Git Add
 
@@ -428,7 +500,41 @@ Finally, press the "Review changes" button, write a comment and either just *Com
 
 Once the pull request has been approved by the number of reviewers needed, the pull request can be merged.
 
-Use the merge button in order to merge the pull request to *main*.
+Use the merge button in order to merge the pull request to *main*. Usually, you should select the "Squash and merge" option, in order to squash all the possible commits made in the current pull request into one. That one commit will have all the changes, and will be named by the title provided in the pull request.
+
+If the option of deleting the branch should appear afterwards, you should proceed to do so. This choice may also be automated for you.
+
+Lastly, follow the procedure for deleting a branch as described in the branches section of this README.
+
+### Revert a merge
+
+Reverting a merge is easier the closer to the merge you are. Keep in mind that unless a branch has completed a pull request, there is no need for a revert. The branch can simply be deleted, or you can revert the changes locally and pick up from where everything was working.
+
+#### Revert in GitHub
+
+To revert the changes merged, go to the *Pull request* pane in the GitHub repository.. Select *Closed* and open the pull request that failed. Scroll down until you see the `user merged commit .... into main` message. Press the *Revert* button available.
+
+This will create a new pull request, reverting the changes made in the original pull request. This pull request needs to go through the same steps as creating the original pull request, in that the fields need to be filled in.
+
+Once the reverting pull request has been approved, merge it to the *main* branch. Everything should be back to normal.
+
+#### Revert in VSCode
+
+Reverting changes in VSCode should only happen if you need to revert changes you have made locally. In such a case, go to the *COMMITS* section of the *Source Control* activity. Find the commit you want to revert, right click the same commit and select "Revert Commit...". Select the "Revert and no edit" option.
+
+#### Revert using terminal
+
+In the terminal, you revert using the commit SHA. First, find the commit that needs to be reverted by issuing the command:
+
+```sh
+git log --oneline
+```
+
+Press `q` to exit the dialogue, after noting the SHA id of the commit that must be reverted. Issue the following command to revert the commit, if the SHA was `f4sd49`:
+
+```sh
+git revert f4sd49
+```
 
 <!-- Resource links -->
 [git-win]: https://git-scm.com/download/win
