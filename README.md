@@ -390,13 +390,45 @@ Following the initial push, you can continue updating the remote branch with mor
 git push
 ```
 
-### Create a Pull Request
+### Pull request
 
 Creating a Pull Request means that you create a request for the owner(s) or maintainer(s) of a repository to review and pull any changes you have made in your branch, into the sacred *main* branch. In order to do so, the changes you have made must be published to a branch in GitHub first.
 
 All the Pull Request administrative work: create, review, comment, approve/decline are performed in GitHub. The exception being if you have the [GitHub Pull Request and Issues][github-pr-issues] extension in VSCode, or if you are using the [GitHub CLI][github-cli]. I will not be covering those two in this course.
 
+All the while the pull request is not yet approved and merged, you can continue pushing changes to the branch. Including fixing any issues that might arise.
 
+#### Create pull request in GitHub
+
+Once you navigate to the repository in GitHub, you should be presented with a yellow banner on the *<> Code* page that "your repository had recent pushes x minutes ago". If you cannot see the yellow banner, navigate to the *Branches* section of the repository. You can find this right next to the "Select branch" drop down button on the *<> Code* page.
+
+Select "Compare & pull request" from the yellow banner, or "New pull request" button from Branches in order to create a new pull request.
+
+Fill in the pull request details, according to the template used for your repository. If you do not have a template, request for one to be made available, or fill in according to what seems to be most likely.
+
+Once finshed, either press the "Create pull request" button, or press the arrow button to create a draft first.
+
+A draft pull request can later be promoted to a proper pull request, in case there are changes still to be made.
+
+#### Review pull requests
+
+If it is your job to review pull requests, you should do this diligently by following any organizational protocol created for reviewing pull requests. This may include reading the title, reading the description and checking that the changes made matches what is in the title and description.
+
+Depending on the potential severity of the changes, you may need to clone the pull request, and rerun any tests that have been performed, verifying that everything is as it should be.
+
+Follow up on any GitHub actions that have ran, and see that they go through OK.
+
+In the "Files changed" tab, review every file changed, added or removed. Make comments where you are unsure, things are unclear, or possibly in error. Use the "Viewed" checkbox when you have finished reviewing a file.
+
+Finally, press the "Review changes" button, write a comment and either just *Comment*, *Approve* or *Request changes*.
+
+> Tip: Keep in mind that noone wants to do break stuff, or write bad code. In order to keep a civil conversation, be supportive and suggest changes or improvements in a voice that gains everyone. Show off your good manners :)
+
+#### Merge a pull request
+
+Once the pull request has been approved by the number of reviewers needed, the pull request can be merged.
+
+Use the merge button in order to merge the pull request to *main*.
 
 <!-- Resource links -->
 [git-win]: https://git-scm.com/download/win
