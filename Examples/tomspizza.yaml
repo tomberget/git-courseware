@@ -2,8 +2,8 @@
 enabled: true
 isGoodPizza: true
 topping:
-  - Kylling
-  - Tomatsaus
-  - Cashewnøtter
-  - Ananas
-  - Koriander
+  - "Kylling"
+  - "Tomatsaus"
+  - "Cashewnøtter"
+  - "Ananas"
+  - "Koriander"
