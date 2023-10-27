@@ -1,0 +1,9 @@
+---
+enabled: true
+isGoodPizza: true
+topping:
+  - Kylling
+  - Tomatsaus
+  - Cashewnøtter
+  - Ananas
+  - Koriander
