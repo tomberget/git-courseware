@@ -372,6 +372,30 @@ All commited changes on GitHub, is already in GitHub. You do not need to publish
 
 #### Push commited changes using VSCode
 
+Once all changes are commited, and no more changes are listed, the *v Commit* button changes to *Publish Branch*. Press this button to push your changes to the remote GitHub repository. It will create a branch in the GitHub repository with the same name as your current branch, and setting the remote (GitHub) branch as upstream for your current active branch.
+
+#### Push commited changes using terminal
+
+If the current branch has never been pushed to remote (GitHub) before, you need to create the remote branch as upstream for your current branch. You can do this by issuing the following command:
+
+```sh
+git push --set-upstream origin active_branch_name
+```
+
+This will create a branch upstream for your branch in origin (GitHub), and give the branch the same name as what you have replaced `active_branch_name` with. Usually, this should be the same name as you have used for your current active branch locally.
+
+Following the initial push, you can continue updating the remote branch with more commits using the command:
+
+```sh
+git push
+```
+
+### Create a Pull Request
+
+Creating a Pull Request means that you create a request for the owner(s) or maintainer(s) of a repository to review and pull any changes you have made in your branch, into the sacred *main* branch. In order to do so, the changes you have made must be published to a branch in GitHub first.
+
+All the Pull Request administrative work: create, review, comment, approve/decline are performed in GitHub. The exception being if you have the [GitHub Pull Request and Issues][github-pr-issues] extension in VSCode, or if you are using the [GitHub CLI][github-cli]. I will not be covering those two in this course.
+
 
 
 <!-- Resource links -->
@@ -385,3 +409,5 @@ All commited changes on GitHub, is already in GitHub. You do not need to publish
 [vscode-pets]: https://marketplace.visualstudio.com/items?itemName=tonybaloney.vscode-pets
 [pre-commit]: https://pre-commit.com/
 [github-dashboard]: https://github.com/dashboard
+[github-pr-issues]: https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github
+[github-cli]: https://cli.github.com/

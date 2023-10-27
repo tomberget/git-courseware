@@ -24,9 +24,9 @@
 
 ## Lunch (30 mins)
 
-## Add & Commit (20 mins)
+## Add, Stash, Remove, Commit & Push (20 mins)
 
-- Walkthrough: Make changes, add, and commit
+- Walkthrough: Make changes, add, remove, stash changes, commit and push
 - Exercise: Add & commit a new YAML file in a new branch
 
 ## Pull Requests (30 mins)
