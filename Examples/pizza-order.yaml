@@ -1,2 +1,7 @@
 ---
 store: "Best Pizza Ever"
+storeAddress:
+  street: "Henrik Ibsens gate 1"
+  city: "Oslo"
+  country: "Norway"
+  zipcode: "0123"
